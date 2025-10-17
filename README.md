@@ -1,6 +1,7 @@
 # kotlin-calculator-precourse
 
 ## 기능
+
 1. 입력을 받는 기능
 2. 계산 가능 여부 확인 기능
 3. 숫자를 분리하는 기능
