@@ -9,4 +9,5 @@ fun main() {
     val inputUser = Console.readLine()
     val calculator = Calculator()
     val circulate = calculator.circulate(inputUser)
+    println("결과 : $circulate")
 }
