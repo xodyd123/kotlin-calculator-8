@@ -30,8 +30,11 @@ class Calculator {
 
     private fun circulateValidator(splitInput: List<String>) {
         for (string in splitInput) {
-            if (string.isEmpty() || string.contains("-")) {
-                throw IllegalArgumentException("잘못된 값을 입력하였습니다.")
+            if (string.contains("-")) {
+                throw IllegalArgumentException("음수를 입력할수 없습니다.")
+            }
+            if (string.isEmpty()) { // ex) ,1:2,3
+                throw IllegalArgumentException("구분자를 먼저 입력할수 없습니다.")
             }
             invalidString(string)
         }
@@ -40,7 +43,7 @@ class Calculator {
     private fun invalidString(string: String) {
         for (ch in string) {
             if (!ch.isDigit()) {
-                throw IllegalArgumentException("잘못된 값을 입력하였습니다.")
+                throw IllegalArgumentException("숫자 이외의 문자를 입력할수 없습니다.")
             }
         }
     }
