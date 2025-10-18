@@ -8,4 +8,5 @@ fun main() {
     println("덧셈할 문자열을 입력해 주세요.")
     val inputUser = Console.readLine()
     val calculator = Calculator()
+    val circulate = calculator.circulate(inputUser)
 }
