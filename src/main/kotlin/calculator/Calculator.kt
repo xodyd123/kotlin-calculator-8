@@ -8,7 +8,8 @@ class Calculator {
         val splitInput = checkCustomDelimiter(inputUser)
         circulateValidator(splitInput)
         for (string in splitInput) {
-            sum += string.toInt()
+            val trimmedString = string.trim()
+            sum += trimmedString.toInt()
         }
         return sum
     }
@@ -30,19 +31,20 @@ class Calculator {
 
     private fun circulateValidator(splitInput: List<String>) {
         for (string in splitInput) {
-            if (string.contains("-")) {
+            val trimmedString = string.trim()
+            if (trimmedString.startsWith("-")) {
                 throw IllegalArgumentException("음수를 입력할수 없습니다.")
             }
-            if (string.isEmpty()) { // ex) ,1:2,3
+            if (trimmedString.isEmpty()) { // ex) ,1:2,3 , //-\n-1-2-3
                 throw IllegalArgumentException("구분자를 먼저 입력할수 없습니다.")
             }
-            invalidString(string)
+            invalidString(trimmedString)
         }
     }
 
     private fun invalidString(string: String) {
         for (ch in string) {
-            if (!ch.isDigit()) {
+            if (ch !in '0'..'9') {
                 throw IllegalArgumentException("숫자 이외의 문자를 입력할수 없습니다.")
             }
         }
