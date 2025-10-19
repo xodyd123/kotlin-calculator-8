@@ -4,7 +4,7 @@ class Calculator {
     private val delimiters = arrayOf(",", ":")
     fun circulate(inputUser: String): Int {
         var sum = 0
-        if (inputUser.isEmpty()) return 0
+        if (inputUser.isBlank()) return 0
         val splitInput = checkCustomDelimiter(inputUser)
         circulateValidator(splitInput)
         for (string in splitInput) {
